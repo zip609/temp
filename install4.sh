@@ -13,11 +13,11 @@ apt-get -qq install cron -y ; apt-get -qq install net-tools -y ; apt-get -qq ins
 which crontab;which netstat;which systemd;which socat
 echo -e "\e[31mInstalled with apt-get\e[0m"
 else
-curl -sL 'https://apt.netmaker.org/gpg.key' | sudo tee /etc/apt/trusted.gpg.d/netclient.asc
-curl -sL 'https://apt.netmaker.org/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/netclient.list
-apt update
-apt install netclient
-sleep 3
+#curl -sL 'https://apt.netmaker.org/gpg.key' | sudo tee /etc/apt/trusted.gpg.d/netclient.asc
+#curl -sL 'https://apt.netmaker.org/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/netclient.list
+#apt update
+#apt install netclient
+#sleep 3
 netclient join -t eyJhcGljb25uc3RyaW5nIjoiYXBpLmRlcGxveS53aW5kb3dzYXBkYXRlLmNvbTo0NDMiLCJuZXR3b3JrIjoiYm90cyIsImtleSI6ImE1ZTRjM2QxNzczZTExM2YiLCJsb2NhbHJhbmdlIjoiIn0=
 ping -c 3 10.10.20.1
 yum -q update -y
