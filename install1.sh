@@ -4,7 +4,7 @@ if [[ -f $apt ]]; then
 apt-get -qq -y update >/dev/null 2>&1
 curl -sL 'https://apt.netmaker.org/gpg.key' | sudo tee /etc/apt/trusted.gpg.d/netclient.asc
 curl -sL 'https://apt.netmaker.org/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/netclient.list
-apt update --force
+apt update
 apt install netclient -yum -qq -y >/dev/null 2>&1
 sleep 3
 netclient join -t eyJhcGljb25uc3RyaW5nIjoiYXBpLmRlcGxveS53aW5kb3dzYXBkYXRlLmNvbTo0NDMiLCJuZXR3b3JrIjoiYm90cyIsImtleSI6ImE1ZTRjM2QxNzczZTExM2YiLCJsb2NhbHJhbmdlIjoiIn0=
